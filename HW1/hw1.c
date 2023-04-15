@@ -1,6 +1,8 @@
 /* Omar Nassar
  * Portland State University ECE 103
  * Homework 1
+ * April 14, 2023
+ * Program to find amount of time it takes to oxidize wafer
  */
 
 #include <stdlib.h>
