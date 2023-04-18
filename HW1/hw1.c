@@ -1,6 +1,8 @@
 /* Omar Nassar
  * Portland State University ECE 103
  * Homework 1
+ * April 14, 2023
+ * Program to find amount of time it takes to oxidize wafer
  */
 
 #include <stdlib.h>
@@ -13,7 +15,7 @@ double getKelvin(double celsius) { //Not using
     return celsius + 273.15;
 }
 
-double getBA(int wet, double temp) {
+double getBA(int wet, double temp) { //Funciton to get B/A for both wet and dry
     double coefficient;
     double activationEnergy;
     
@@ -29,7 +31,7 @@ double getBA(int wet, double temp) {
     return coefficient * exp(-(activationEnergy/(k * temp)));
 }
 
-double getB(int wet, double temp) {
+double getB(int wet, double temp) {//Function to get B for both wet and dry
     double coefficient;
     double activationEnergy;
     
@@ -45,15 +47,15 @@ double getB(int wet, double temp) {
     return coefficient * exp(-(activationEnergy/(k * temp)));
 }
 
-double getA(int wet, double temp) {
+double getA(int wet, double temp) {//Function to get A by getting B and B/A
     return getB(wet, temp)/getBA(wet, temp);
 }
 
-double getTime(double x0, double x, double A, double B) {
+double getTime(double x0, double x, double A, double B) {//Function to get time
     return ((pow(x, 2) + (A * x)) - (pow(x0, 2) + (A * x0)))/B;
 }
 
-void printHMS(double time) {
+void printHMS(double time) {//Converting time in seconds to HH:MM::SS
     int timeH = time/3600;
     double timeRem = (time/3600) - timeH;
     int timeM = timeRem * 60;
@@ -62,24 +64,27 @@ void printHMS(double time) {
     printf("(%dh %dm %ds).\n", timeH, timeM, timeS);
 }
 
-int main (void) {
+int main (void) {//void because no argc or argv being used
     double oxidationTemp;
     double initThickness;
     double totalThickness;
 
+    //Take in temperature and convert to celsius
     printf("What is the temperature (in Celsius)? ");
     scanf("%lf", &oxidationTemp);
     oxidationTemp += 273.15;
 
+    //Input initial oxide thickness and converting nm to micrometers
     printf("What is the initial oxide thickness (in nm)? ");
     scanf("%lf", &initThickness);
     initThickness /= 1000;
 
+    //Input desired thickness and converting nm to micrometers
     printf("What is the desired oxide thickness (in nm)? ");
     scanf("%lf", &totalThickness);
     totalThickness /= 1000;
 
-    //DRY
+    //DRY Process
     double dryB = getB(0, oxidationTemp);
     double dryA = getA(0, oxidationTemp);
     double dryTime = getTime(initThickness, totalThickness, dryA, dryB);
@@ -88,7 +93,7 @@ int main (void) {
     printf("Required growth time is about %lf hrs ", dryTime/3600);
     printHMS(dryTime);
 
-    //WET
+    //WET Process
     double wetB = getB(1, oxidationTemp);
     double wetA = getA(1, oxidationTemp);
     double wetTime = getTime(initThickness, totalThickness, wetA, wetB);
@@ -96,7 +101,6 @@ int main (void) {
     printf("\n[WET Process]\n");
     printf("Required growth time is about %lf hrs ", wetTime/3600);
     printHMS(wetTime);
-
 
     return EXIT_SUCCESS;
 }
