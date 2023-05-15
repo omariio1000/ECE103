@@ -2,6 +2,7 @@
  * Portland State University ECE 103
  * Homework 3
  * May 15, 2023
+ * Program to create a fourier series plot using DISLIN
  * TO RUN ON LINUX: clink -a hw3
  */
 
@@ -24,14 +25,14 @@
 float getYVal(float x, float L, int N);
 void plot(float x[], float y[], float square[], int num, float xStop, char title1[], char title2[]);
 
-int main(void) {
+int main(void) {//no optargs
     char name[BUFFER_SIZE];
     printf("Please enter your name: ");
     fgets(name, BUFFER_SIZE, stdin);
     fflush(stdin);
 
     float xStop = 0;
-    while (xStop <= 0.0 || xStop > 10.0) {
+    while (xStop <= 0.0 || xStop > 10.0) {//get the x stop
         printf("Enter x range stop (0 to 10): ");
         scanf("%f", &xStop);
         fflush(stdin);
@@ -39,7 +40,7 @@ int main(void) {
     }
     
     float xStep = 0;
-    while (xStep <= 0.0 || xStep > 0.5) {
+    while (xStep <= 0.0 || xStep > 0.5) {//get the x step size
         printf("Enter x step size (0.01 to 0.5): ");
         scanf("%f", &xStep);
         fflush(stdin);
@@ -47,7 +48,7 @@ int main(void) {
     }
 
     float interval = 0;
-    while (interval <= 0.0 || interval > xStop/2) {
+    while (interval <= 0.0 || interval > xStop/2) {//get the interval
         printf("Enter interval L (0.5 to %g): ", xStop/2);
         scanf("%f", &interval);
         fflush(stdin);
@@ -55,7 +56,7 @@ int main(void) {
     }
 
     int order = 0;
-    while (order <= 0 || order > 99 || order % 2 == 0) {
+    while (order <= 0 || order > 99 || order % 2 == 0) {//get the order N
         printf("Enter order N (1 to 99, odd only): ");
         scanf("%d", &order);
         fflush(stdin);
@@ -63,13 +64,14 @@ int main(void) {
         if (order % 2 == 0) fprintf(stderr, "  Error: N must be odd. Please try again.\n");
     }
 
+    //initialize the variables for the graph
     int num = floor(xStop/xStep) + 1;
     float x[num];
     float y[num];
     float square[num];
     float xStart = 0.0;
 
-    for (int i = 0; i < num; i++) {
+    for (int i = 0; i < num; i++) {//create x steps and y vals as well as square wave
         x[i] = xStart;
         xStart += xStep;
         y[i] = getYVal(x[i], interval, order);
@@ -80,21 +82,24 @@ int main(void) {
         else if (x[i] >= interval && x[i] < (interval * 2) - 0.01) square[i] = -1;
         else square[i] = 0;
     }
-    char title1[BUFFER_SIZE];
-    strcpy(title, ("Truncated Fourier Series for Square Wave (L = %f, N = %d)", interval, order));
 
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
+    //titles for graph
+    char title1[BUFFER_SIZE * 2];
+    char title2[BUFFER_SIZE * 2];
 
-    char title2[BUFFER_SIZE];
-    strcpy(title, ("Programmer: %s\tDate: %d-%02d-%02d %02d:%02d:%02d\n", name, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec));
+    time_t t;
+    time(&t);
 
-    //plot(x, y, square, num, xStop, title1, title2);
+    sprintf(title1, "Truncated Fourier Series for Square Wave (L = %g, N = %d)", interval, order);
+    sprintf(title2, "Programmer: %s\tDate: %s", name, ctime(&t));
+
+    //plot function
+    plot(x, y, square, num, xStop, title1, title2);
 
     return EXIT_SUCCESS;
 }
 
-float getYVal(float x, float L, int N) {
+float getYVal(float x, float L, int N) {//function for getting y values 
     float temp = 0.0;
     for (float n = 1; n <= N; n += 2.0f) {
         float temp2 = (1.0f / n) * sin((n * M_PI * x) / L);
@@ -105,7 +110,7 @@ float getYVal(float x, float L, int N) {
     return temp;
 }
 
-void plot(float x[], float y[], float square[], int num, float xStop, char title1[], char title2[]) {
+void plot(float x[], float y[], float square[], int num, float xStop, char title1[], char title2[]) {//plot function
     // Set up plot
 	metafl("XWIN");      // Defines the plot file format
 	setpag("da4l");      // Selects a predefined page format
@@ -119,8 +124,8 @@ void plot(float x[], float y[], float square[], int num, float xStop, char title
 	axspos(450, 1800);   // Determine the position of axis system
 	axslen(2200, 1200);  // Define axis length for 2-D axis system
 
-	name("X-axis", "x"); // Define x-axis title
-	name("Y-axis", "y"); // Define y-axis title
+	name("X Values", "x"); // Define x-axis title
+	name("Y Amplitude", "y"); // Define y-axis title
 
 	labdig(-1, "x");     // Set number of decimal places for tick labels
 	ticks(10, "xy");     // Set number of tick marks
@@ -143,7 +148,7 @@ void plot(float x[], float y[], float square[], int num, float xStop, char title
 	curve(x, y, num);     // Plot curve for y1 versus x
 
     color("blue"); 
-    dash();       // Color for first curve
+    dash();      
 	curve(x, square, num);
 
 	color("fore");       // Reset color to default value
