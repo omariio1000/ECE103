@@ -1,0 +1,120 @@
+Atomic Number,Symbol,Name,Atomic Mass (u),Standard State,Density (g/cm^3)
+118
+1,H,Hydrogen,1.00794(4),gas,8.99E-05
+2,He,Helium,4.002602(2),gas,1.79E-04
+3,Li,Lithium,6.941(2),solid,0.534
+4,Be,Beryllium,9.012182(3),solid,1.85
+5,B,Boron,10.811(7),solid,2.08
+6,C,Carbon,12.0107(8),solid,2.26
+7,N,Nitrogen,14.0067(2),gas,1.25E-03
+8,O,Oxygen,15.9994(3),gas,1.43E-03
+9,F,Fluorine,18.9984032(5),gas,1.70E-03
+10,Ne,Neon,20.1797(6),gas,9.00E-04
+11,Na,Sodium,22.98976928(2),solid,0.968
+12,Mg,Magnesium,24.3050(6),solid,1.738
+13,Al,Aluminum,26.9815386(8),solid,2.7
+14,Si,Silicon,28.0855(3),solid,2.329
+15,P,Phosphorus,30.973762(2),solid,1.823
+16,S,Sulfur,32.065(5),solid,1.96
+17,Cl,Chlorine,35.453(2),gas,3.20E-03
+18,Ar,Argon,39.948(1),gas,1.78E-03
+19,K,Potassium,39.0983(1),solid,0.862
+20,Ca,Calcium,40.078(4),solid,1.55
+21,Sc,Scandium,44.955912(6),solid,2.985
+22,Ti,Titanium,47.867(1),solid,4.506
+23,V,Vanadium,50.9415(1),solid,6
+24,Cr,Chromium,51.9961(6),solid,7.19
+25,Mn,Manganese,54.938045(5),solid,7.21
+26,Fe,Iron,55.845(2),solid,7.874
+27,Co,Cobalt,58.933195(5),solid,8.9
+28,Ni,Nickel,58.6934(4),solid,8.908
+29,Cu,Copper,63.546(3),solid,8.96
+30,Zn,Zinc,65.38(2),solid,7.14
+31,Ga,Gallium,69.723(1),solid,5.91
+32,Ge,Germanium,72.64(1),solid,5.323
+33,As,Arsenic,74.92160(2),solid,5.727
+34,Se,Selenium,78.96(3),solid,4.81
+35,Br,Bromine,79.904(1),liquid,3.103
+36,Kr,Krypton,83.798(2),gas,3.75E-03
+37,Rb,Rubidium,85.4678(3),solid,1.532
+38,Sr,Strontium,87.62(1),solid,2.64
+39,Y,Yttrium,88.90585(2),solid,4.472
+40,Zr,Zirconium,91.224(2),solid,6.52
+41,Nb,Niobium,92.90638(2),solid,8.57
+42,Mo,Molybdenum,95.96(2),solid,10.28
+43,Tc,Technetium,[98],solid,11
+44,Ru,Ruthenium,101.07(2),solid,12.45
+45,Rh,Rhodium,102.90550(2),solid,12.41
+46,Pd,Palladium,106.42(1),solid,12.023
+47,Ag,Silver,107.8682(2),solid,10.49
+48,Cd,Cadmium,112.411(8),solid,8.65
+49,In,Indium,114.818(3),solid,7.31
+50,Sn,Tin,118.710(7),solid,7.365
+51,Sb,Antimony,121.760(1),solid,6.697
+52,Te,Tellurium,127.60(3),solid,6.24
+53,I,Iodine,126.90447(3),solid,4.933
+54,Xe,Xenon,131.293(6),gas,5.89E-03
+55,Cs,Cesium,132.9054519(2),solid,1.93
+56,Ba,Barium,137.327(7),solid,3.51
+57,La,Lanthanum,138.90547(7),solid,6.162
+58,Ce,Cerium,140.116(1),solid,6.77
+59,Pr,Praseodymium,140.90765(2),solid,6.77
+60,Nd,Neodymium,144.242(3),solid,7.01
+61,Pm,Promethium,[145],solid,7.26
+62,Sm,Samarium,150.36(2),solid,7.52
+63,Eu,Europium,151.964(1),solid,5.264
+64,Gd,Gadolinium,157.25(3),solid,7.9
+65,Tb,Terbium,158.92535(2),solid,8.23
+66,Dy,Dysprosium,162.500(1),solid,8.54
+67,Ho,Holmium,164.93032(2),solid,8.79
+68,Er,Erbium,167.259(3),solid,9.066
+69,Tm,Thulium,168.93421(2),solid,9.32
+70,Yb,Ytterbium,173.054(5),solid,6.9
+71,Lu,Lutetium,174.9668(1),solid,9.841
+72,Hf,Hafnium,178.49(2),solid,13.31
+73,Ta,Tantalum,180.94788(2),solid,16.69
+74,W,Tungsten,183.84(1),solid,19.25
+75,Re,Rhenium,186.207(1),solid,21.02
+76,Os,Osmium,190.23(3),solid,22.59
+77,Ir,Iridium,192.217(3),solid,22.56
+78,Pt,Platinum,195.084(9),solid,21.45
+79,Au,Gold,196.966569(4),solid,19.3
+80,Hg,Mercury,200.59(2),liquid,13.534
+81,Tl,Thallium,204.3833(2),solid,11.85
+82,Pb,Lead,207.2(1),solid,11.34
+83,Bi,Bismuth,208.98040(1),solid,9.78
+84,Po,Polonium,[209],solid,9.2
+85,At,Astatine,[210],solid,6.35
+86,Rn,Radon,[222],gas,0.01
+87,Fr,Francium,[223],solid,9.73E-03
+88,Ra,Radium,[226],solid,5.5
+89,Ac,Actinium,[227],solid,10
+90,Th,Thorium,232.03806(2),solid,11.724
+91,Pa,Protactinium,231.03588(2),solid,15.37
+92,U,Uranium,238.02891(3),solid,19.1
+93,Np,Neptunium,[237],solid,19.38
+94,Pu,Plutonium,[244],solid,19.816
+95,Am,Americium,[243],solid,12
+96,Cm,Curium,[247],solid,13.51
+97,Bk,Berkelium,[247],solid,14.78
+98,Cf,Californium,[251],solid,15.1
+99,Es,Einsteinium,[252],solid,8.84
+100,Fm,Fermium,[257],solid (predicted),unknown
+101,Md,Mendelevium,[258],solid (predicted),unknown
+102,No,Nobelium,[259],solid (predicted),unknown
+103,Lr,Lawrencium,[262],solid (predicted),unknown
+104,Rf,Rutherfordium,[267],solid (predicted),23.2
+105,Db,Dubnium,[268],solid (predicted),29.3
+106,Sg,Seaborgium,[271],solid (predicted),35
+107,Bh,Bohrium,[272],solid (predicted),37.1
+108,Hs,Hassium,[270],solid (predicted),41
+109,Mt,Meitnerium,[276],solid (predicted),37.4
+110,Ds,Darmstadtium,[281],solid (predicted),34.8
+111,Rg,Roentgenium,[280],solid (predicted),28.7
+112,Cn,Copernicium,[285],unknown,23.7
+113,Uut,Ununtrium,[284],solid (predicted),16
+114,Fl,Flerovium,[289],solid (predicted),14
+115,Uup,Ununpentium,[288],solid (predicted),13.5
+116,Lv,Livermorium,[293],solid (predicted),12.9
+117,Uus,Ununseptium,[294],solid (predicted),7.2
+118,Uuo,Ununoctium,[294],solid (predicted),5
