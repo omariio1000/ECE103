@@ -141,5 +141,6 @@ int main (void) {
     }
 
     free(elements);
+    if (in != NULL) fclose(in);
     return EXIT_SUCCESS;
 }
