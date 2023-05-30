@@ -31,12 +31,16 @@ int findAtomic(int atomNumber, element *list, int rows) {//function to find elem
     return -1;
 }
 
-int findName(char *name, element *list, int rows) {//function to find element by name 
+int findName(char *name, element *list, int rows, int *results) {//function to find element by name 
+    for (int i = 0; i < rows; i++) results[i] = -1;
+    int resultNum = 0;
+    int found = 0;
+    
     for (int i = 0; i < BUFFER_SIZE; i++) {//lowercase input name
         if (name[i] == '\0') break;
         else name[i] = tolower(name[i]);
     }
-    printf("%s\n", name);
+    //printf("%s\n", name);
     
     for (int i = 0; i < rows; i++) {//compare every element
         char elemCopy[BUFFER_SIZE];
@@ -47,10 +51,14 @@ int findName(char *name, element *list, int rows) {//function to find element by
             else elemCopy[i] = tolower(elemCopy[i]);
         }
 
-        if (!strcmp(elemCopy, name)) return i;
+        if (strstr(elemCopy, name)) {//if substring is in element name
+            results[resultNum] = i;
+            resultNum++;
+            found = 1;
+        }
     }
 
-    return -1;
+    return found;
 }
 
 int main (void) {
@@ -101,7 +109,7 @@ int main (void) {
     while (running) {//while not quit
         int option = -1;
 
-        printf("Options:\n");
+        printf("\nOptions:\n");
         printf(" [1] Display entire element array\n");
         printf(" [2] Search for specific atomic number\n");
         printf(" [3] Search for specific element name\n");
@@ -115,29 +123,33 @@ int main (void) {
         if (option == 1) for (int i = 0; i < rows; i++) printElement(&elements[i]);
 
         else if (option == 2) {//print by atomic number
-            printf("Enter atomic number: ");
+            printf("\nEnter atomic number: ");
             scanf("%d", &option);
             fflush(stdin);
 
             option = findAtomic(option, elements, rows);
-            if (option == -1) printf("No element found with that atomic number.\n");
+            if (option == -1) printf("\nNo element found with that atomic number.\n");
             else printElement(&elements[option]);
         }
 
         else if (option == 3) {//print by element name
             char name[BUFFER_SIZE];
-            printf("Enter the element name: ");
+            int res[rows];
+            printf("\nEnter the element name: ");
             scanf("%s", name);
             fflush(stdin);
 
-            option = findName(name, elements, rows);
-            if (option == -1) printf("No element found with that name.\n");
-            else printElement(&elements[option]);
+            int results = findName(name, elements, rows, res);
+            if (!results) printf("\nNo element found with that name.\n");
+            else for(int i = 0; i < rows; i++) {//look which elements were given in results
+                if (res[i] == -1) break;
+                else printElement(&elements[res[i]]);
+            }
         }
         
         else if (option == 0) running = 0;
 
-        else printf("Invalid option. Try again.\n");
+        else printf("\nInvalid option. Try again.\n");
     }
 
     free(elements);
