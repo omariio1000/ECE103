@@ -116,7 +116,10 @@ int main (void) {
         printf(" [0] Quit\n");
         printf("Choice? ");
 
-        scanf("%d", &option);
+        //workaround using fgets so that inputting a nondigit won't give infinite loop
+        fgets(buff, BUFFER_SIZE, stdin);  
+        if (!isdigit(buff[0])) option = -1;
+        else sscanf(buff, "%d", &option);
         fflush(stdin);
 
         //print all
@@ -124,7 +127,9 @@ int main (void) {
 
         else if (option == 2) {//print by atomic number
             printf("\nEnter atomic number: ");
-            scanf("%d", &option);
+            fgets(buff, BUFFER_SIZE, stdin);
+            if (!isdigit(buff[0])) option = -1;
+            else sscanf(buff, "%d", &option);
             fflush(stdin);
 
             option = findAtomic(option, elements, rows);
@@ -136,7 +141,8 @@ int main (void) {
             char name[BUFFER_SIZE];
             int res[rows];
             printf("\nEnter the element name: ");
-            scanf("%s", name);
+            fgets(buff, BUFFER_SIZE, stdin);
+            sscanf(buff, "%s", name);
             fflush(stdin);
 
             int results = findName(name, elements, rows, res);
